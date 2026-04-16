@@ -1,5 +1,6 @@
 import React from 'react';
-import { HashRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { HashRouter as Router } from 'react-router-dom';
 import ProductList from './components/ProductList';
 import CartItem from './components/CartItem';
 import AboutUs from './components/AboutUs';
@@ -9,9 +10,11 @@ function LandingPage() {
   const navigate = useNavigate();
   return (
     <div className="landing-page">
-      <h1>Welcome to Paradise Nursery</h1>
-      <AboutUs />
-      <button onClick={() => navigate('/plants')}>Get Started</button>
+      <div className="landing-content">
+        <h1>Welcome to Paradise Nursery</h1>
+        <AboutUs />
+        <button onClick={() => navigate('/plants')}>Get Started</button>
+      </div>
     </div>
   );
 }
@@ -29,10 +32,9 @@ function AppContent() {
 
 function App() {
   return (
-    <Router>
+    <Router basename="/e-plantShopping">
       <AppContent />
     </Router>
   );
 }
-
 export default App;
